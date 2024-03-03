@@ -1,0 +1,61 @@
+import time as t
+
+# Hard-coded user information
+user_pin = 9876
+user_balance = 97432.50
+
+# Initialize variables
+choice = 9
+num_of_tries = 3
+
+# Welcome message
+print("Welcome to your bank account, Ms. ABC\n")
+
+# Main loop
+while (True):
+    print("\t0. Logout and Exit")
+    print("\t1. View Account Balance")
+    print("\t2. Withdraw Cash")
+    print("\t3. Deposit Cash")
+    print("\t4. Change PIN")
+    print("\t5. Return Card")
+    choice = int(input("Enter number to proceed > "))
+    print("\n\n")
+
+    if choice == 0:
+        print("Exiting...")
+        t.sleep(2)
+        print("You have been logged out. Thank you!\n\n")
+        break
+
+    elif choice in (1,2,3,4,5):
+        # Prompt for PIN
+        input_pin = input("Enter your PIN: ")
+        num_of_tries -= 1
+
+        # Check if PIN is correct
+        if input_pin == str(user_pin):
+            if choice == 1:
+                print("Your account balance is: ", user_balance)
+            elif choice == 2:
+                # Withdraw code here
+                pass
+            elif choice == 3:
+                # Deposit code here
+                pass
+            elif choice == 4:
+                # Change PIN code here
+                pass
+            elif choice == 5:
+                print("Returning card...")
+                t.sleep(2)
+                print("Thank you for using our ATM. Goodbye!")
+                break
+
+        # Check if PIN attempts have been exceeded
+        elif num_of_tries == 0:
+            print("You have exceeded the maximum number of PIN attempts. Exiting...\n\n")
+            break
+
+        else:
+            print("Incorrect PIN. Please try again.\n")
